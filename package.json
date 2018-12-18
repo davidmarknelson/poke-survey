@@ -1,0 +1,15 @@
+{
+  "name": "poke-survey",
+  "version": "1.0.0",
+  "description": "A survey for people to choose their favorite pokemon.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "David Nelson",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4"
+  }
+}
