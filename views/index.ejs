@@ -1,11 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Poke-Survey</title>
-</head>
-<body>
-  <h1>Poke-Survey Main Page</h1>
-</body>
-</html>
+<%- include('./partials/header') %>
+
+<div class="jumbotron">
+  <h1>Pok&#233-Survey</h1>
+  <h4>Choose your favorite pok&#233mon!</h4>
+</div>
+
+<!-- Start of the survey -->
+<form>
+
+<%- include('./survey/starters') %>
+
+<%- include('./survey/final-evolutions') %>
+
+<%- include('./survey/legendary') %>
+
+<%- include('./survey/games-list') %>
+
+  <!-- Submit Button -->
+  <input type="submit" class="btn btn-outline-success btn-lg">
+</form>
+
+<%- include('./partials/footer') %>
