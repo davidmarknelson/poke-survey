@@ -10,34 +10,31 @@
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
         crossorigin="anonymous">
   <!-- Website CSS -->
-  <base href="/">
   <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+
 </head>
 <body>
 
 <!-- Navbar -->
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
   <div class="container">  
-    <a class="navbar-brand" href="#">Pok&#233-Survey</a>
+    <a class="navbar-brand" href="/">Pok&#233-Survey</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="/">Vote <span class="sr-only">(current)</span></a>
+        <li class="nav-item <% if (page === 'survey') { %>active<% } %>">
+          <a class="nav-link" href="/survey">Survey<span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/results">Results </a>
+        <li class="nav-item <% if (page === 'results') { %>active<% } %>">
+          <a class="nav-link" href="/results">Results</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item <% if (page === 'contact') { %>active<% } %>">
           <a class="nav-link" href="/contact">Contact</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
-
-<!-- Body container -->
-<div class="container">

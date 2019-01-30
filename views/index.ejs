@@ -1,23 +1,42 @@
 <%- include('./partials/header') %>
 
-<div class="jumbotron">
-  <h1>Pok&#233-Survey</h1>
-  <h4>Choose your favorite pok&#233mon!</h4>
+
+  <div class="jumbotron jumbotron-fluid banner">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="d-flex align-items-center welcome">
+            <h1 class="welcomeText">Welcome to <strong>Pok&#233-Survey!</strong></h1>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <h5 class="welcomeText">Vote for ...</h5>
+          <img class="img-fluid" src="https://cdn.bulbagarden.net/upload/d/d2/Pok%C3%A9mon_logo_English.png" alt="Pokemon Logo">
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <!-- Info column -->
+    <div class="col-md-6">
+      <ul>
+        <li>
+          <h5>You can vote for some of your favorite Pok&#233mon!</h5>
+        </li>
+        <li>
+          <h5>Your votes will be saved and you can change or delete your votes at any time!</h5>          
+        </li>
+        <li>
+          <h5>Use different browsers and devices to vote multiple times!</h5>          
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <a href="/survey"><button class="btn btn-success btn-lg btn-block">Vote Now!</button></a>
+    </div>
+  </div>
 </div>
-
-<!-- Start of the survey -->
-<form>
-
-<%- include('./survey/starters') %>
-
-<%- include('./survey/final-evolutions') %>
-
-<%- include('./survey/legendary') %>
-
-<%- include('./survey/games-list') %>
-
-  <!-- Submit Button -->
-  <input type="submit" class="btn btn-outline-success btn-lg">
-</form>
 
 <%- include('./partials/footer') %>

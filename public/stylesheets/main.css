@@ -1,0 +1,181 @@
+.card-img-top {
+  padding: 5px;
+}
+
+[type=submit], .voteButton {
+  margin: 50px 5px;
+}
+
+[type=checkbox] + label {
+  border: 2px solid rgb(114, 153, 180);
+  border-radius: 5px;
+  padding: 2px;
+  margin: 2px;
+  width: 100%;
+  text-align: center;
+}
+
+[type="checkbox"]:checked + label {
+  background-color: rgb(114, 153, 180);
+}
+
+.banner {
+  background-color: rgb(125, 139, 176);
+  -webkit-box-shadow: 0px -8px 15px 10px rgba(0,0,0,0.41);
+  -moz-box-shadow: 0px -8px 15px 10px rgba(0,0,0,0.41);
+  box-shadow: 0px -8px 15px 10px rgba(0,0,0,0.41);
+}
+
+.form-check-inline {
+  margin-right: 0;
+}
+
+.form-check {
+  padding: 0;
+}
+
+.pokemonRow {
+  margin: 0;
+}
+
+
+.col-sm, .col {
+  padding: 2px;
+  margin: 5px;
+}
+
+.card {
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.2);
+  margin-bottom: 10px;
+}
+
+.card:hover {
+  -webkit-box-shadow: 0px 0px 8px px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.2);
+}
+
+.card-body {
+  padding: 5px;
+}
+
+.card-title {
+  text-align: center;
+  margin-bottom: 0;
+  font-size: 3.3vw;
+}
+
+.games-list {
+  font-size: 1.5rem;
+}
+
+.resultsGroupHeader {
+  background-color: rgba(114, 153, 180, 0.3);
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+  width: 100%;
+}
+
+.groupHeader {
+  background-color: rgba(114, 153, 180, 0.3);
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.resultsDate {
+  background-color: rgba(114, 153, 180, 0.3);
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.surveyDate {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.resultsImg {
+  width: 40px;
+  margin-left: 10px;
+}
+
+.progressDefault {
+  background-color: rgb(114, 153, 180);
+}
+
+.mostProgress {
+  background-color: rgb(209, 128, 152);
+}
+
+.highlightVote {
+  font-weight: bold;
+}
+
+.navbar {
+  -webkit-box-shadow: 0px -8px 15px 10px rgba(0,0,0,0.41);
+  -moz-box-shadow: 0px -8px 15px 10px rgba(0,0,0,0.41);
+  box-shadow: 0px -8px 15px 10px rgba(0,0,0,0.41);
+}
+
+.resultsBox {
+  margin: 30px 0;
+  -webkit-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 5px;
+}
+
+[type="radio"] {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+[type="checkbox"] {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.carousel {
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.lightTrioCarousel{
+  border-radius: 5px;
+}
+
+@media only screen and (max-width: 576px) {
+  .groupHeader {
+    border-radius: 0;
+  }
+}
+
+.welcome {
+  height: 100%;
+}
+
+.welcomeText {
+  text-align: center;
+}
+
+.btn-block {
+  margin-top: 20px;
+}
+
+/* checkedPokemon must be last to overwrite the shadow */
+.checkedPokemon, .checkedPokemon:hover{
+  border: 5px solid rgb(114, 153, 180);
+  -webkit-box-shadow: 0px 0px 0px 0px black;
+  -moz-box-shadow: 0px 0px 0px 0px black;
+  box-shadow: 0px 0px 0px 0px black;
+  -webkit-transition: border 2s; /* Safari */
+  transition: border .2s;
+}

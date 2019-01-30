@@ -1,0 +1,115 @@
+<!-- Header -->
+<%- include('./partials/header') %>
+
+<div class="jumbotron jumbotron-fluid banner">
+  <div class="container">
+    <h1>Pok&#233-Survey</h1>
+    <h2>Choose your favorite pok&#233mon!</h2>
+  </div>
+</div>
+
+<!-- Flash messages -->
+<%- include('./partials/flash') %>
+
+<!-- Date of previous vote -->
+<% if (previousVote && (previousVote.fingerprint === fingerprint)) { %>
+  <div class="container surveyDate">
+    <h3 class="groupHeader">You voted on <%= helpers.getDateString(previousVote.date) %></h3>
+  </div>
+<% } %>
+
+<!-- Start of the survey -->
+<form action="/survey" method="POST">
+
+<div class="container">
+<% for (let i = 0; i < pokemonData.length; i++) { %>
+  <div class="row">
+    <h3 class="groupHeader"><%= pokemonData[i]['title'] %></h3>
+  </div>
+  <div class="row pokemonRow">
+    <!-- <div class="col-md-3"></div> -->
+    <div class="col">
+      <div class="form-check form-check-inline h-100">
+        <label class="form-check-label h-100" for="<%= pokemonData[i]['pokemonA']['formValue'] %>">
+          <div class="card h-100">
+            <img class="card-img-top" src="<%= pokemonData[i]['pokemonA']['imgBig'] %>" alt="<%= pokemonData[i]['pokemonA']['formValue'] %>">
+            <div class="card-body">
+              <h5 class="card-title"><%= pokemonData[i]['pokemonA']['name'] %></h5>
+              <input class="form-check-input radioInput" type="radio" id="<%= pokemonData[i]['pokemonA']['formValue'] %>" name="<%= pokemonData[i]['formName'] %>" value="<%= pokemonData[i]['pokemonA']['formValue'] %>" 
+                <% if (previousVote && (pokemonData[i]['pokemonA']['formValue'] === previousVote[pokemonData[i]['formName']])) {%>checked<%}%> 
+                required
+              >
+            </div>
+          </div>
+        </label>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-check form-check-inline h-100">
+        <label class="form-check-label h-100" for="<%= pokemonData[i]['pokemonB']['formValue'] %>">
+          <div class="card h-100">
+            <img class="card-img-top" src="<%= pokemonData[i]['pokemonB']['imgBig'] %>" alt="<%= pokemonData[i]['pokemonB']['formValue'] %>">
+            <div class="card-body">
+              <h5 class="card-title"><%= pokemonData[i]['pokemonB']['name'] %></h5>
+              <input class="form-check-input radioInput" type="radio" id="<%= pokemonData[i]['pokemonB']['formValue'] %>" name="<%= pokemonData[i]['formName'] %>" value="<%= pokemonData[i]['pokemonB']['formValue'] %>" 
+                <% if (previousVote && (pokemonData[i]['pokemonB']['formValue'] === previousVote[pokemonData[i]['formName']])) {%>checked<%}%>
+              >
+            </div>
+          </div>
+        </label>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-check form-check-inline h-100">
+        <label class="form-check-label h-100" for="<%= pokemonData[i]['pokemonC']['formValue'] %>">
+          <div class="card h-100">
+            <img class="card-img-top" src="<%= pokemonData[i]['pokemonC']['imgBig'] %>" alt="<%= pokemonData[i]['pokemonC']['formValue'] %>">
+            <div class="card-body">
+              <h5 class="card-title"><%= pokemonData[i]['pokemonC']['name'] %></h5>
+              <input class="form-check-input radioInput" type="radio" id="<%= pokemonData[i]['pokemonC']['formValue'] %>" name="<%= pokemonData[i]['formName'] %>" value="<%= pokemonData[i]['pokemonC']['formValue'] %>" 
+                <% if (previousVote && (pokemonData[i]['pokemonC']['formValue'] === previousVote[pokemonData[i]['formName']])) {%>checked<%}%>
+              >
+            </div>
+          </div>
+        </label>
+      </div>
+    </div>
+    <!-- <div class="col-md-3"></div> -->
+  </div>
+<% } %>
+
+<div class="row">
+  <h3 class="groupHeader">List of Games</h3>
+</div>
+
+<div class="row games-list">
+<% for (let i = 0; i < gamesData.length; i++) { %>
+  <div class="col-6">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="<%= gamesData[i]['formName'] %>" value="<%= gamesData[i]['formValue'] %>" id="<%= gamesData[i]['formValue'] %>" 
+        <% if (previousVote && (previousVote['gamesList'].indexOf(gamesData[i]['formValue']) !== -1)) {%>checked<% } %>
+      >
+      <label class="form-check-label" for="<%= gamesData[i]['formValue'] %>">
+        <%= gamesData[i]['gameName'] %>
+      </label>
+    </div>
+    </div>
+<% } %>
+</div>
+</div>
+
+  <!-- Submit Button -->
+  <div class="container">
+    <% if (previousVote && (previousVote.fingerprint === fingerprint)) { %>
+      <input type="submit" class="btn btn-warning btn-lg float-right" formaction="/survey?_method=PUT" value="Update Votes">
+      <input type="submit" class="btn btn-danger btn-lg float-right" formaction="/survey?_method=DELETE" value="Delete Votes">
+    <% } else { %>
+      <input type="submit" class="btn btn-success btn-lg float-right" value="Submit Votes">
+    <% } %>
+  </div>
+</form>
+
+<!-- Scripts for changing class for radio buttons -->
+<script src="scripts/domFunctions.js"></script>
+<!-- Footer -->
+<%- include('./partials/footer') %>

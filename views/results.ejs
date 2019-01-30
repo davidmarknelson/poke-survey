@@ -1,5 +1,125 @@
+<!-- Header -->
 <%- include('./partials/header') %>
 
-<h1>Pok&#233-Survey Results</h1>
 
+<div class="jumbotron jumbotron-fluid banner">
+  <div class="container">
+    <h1>Pok&#233-Survey Results</h1>
+    <h2>Here are everyone's favorite pok&#233mon!</h2>
+  </div>
+</div>
+
+<!-- Flash messages -->
+<%- include('./partials/flash') %>
+
+<!-- Date of previous vote -->
+<% if (previousVote && (previousVote.fingerprint === fingerprint)) { %>
+  <div class="container">
+    <h3 class="resultsDate">You voted on <%= helpers.getDateString(previousVote.date) %></h3>
+  </div>
+<% } %>
+
+<!-- Pokemon Results -->
+<div class='container'>
+<% for (let i = 0; i < pokemonData.length; i++) { %>
+  <div class="container resultsBox">
+    <h4 class="resultsGroupHeader">
+      <span class="container">
+        <%= pokemonData[i]['title'] %>
+      </span>
+    </h4>
+    <div class="row">
+      <div class="col"></div>
+      <div class="col">
+        <img src="<%= pokemonData[i]['pokemonA']['imgSmall'] %>" alt="<%= pokemonData[i]['pokemonA']['name'] %>" class="resultsImg">
+      </div>
+      <div class="col-9">
+        <span class="<% if (previousVote && (pokemonData[i]['pokemonA']['formValue'] === previousVote[pokemonData[i]['formName']])) {%>highlightVote<%}%>">
+          <%= pokemonData[i]['pokemonA']['name'] %>: <%= helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonA']['formValue']) %> Votes
+        </span>
+        <div class="progress" style="height: 20px;">
+          <div class="progress-bar" role="progressbar" 
+            style="width: <%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonA']['formValue']), helpers.totalVotes(votes)) %>%;" 
+            aria-valuenow="<%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonA']['formValue']), helpers.totalVotes(votes)) %>" 
+            aria-valuemin="0" aria-valuemax="100">
+            <%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonA']['formValue']), helpers.totalVotes(votes)) %>%
+          </div>
+        </div>
+      </div>
+      <div class="col"></div>
+    </div>
+    <div class="row">
+      <div class="col"></div>
+      <div class="col">
+        <img src="<%= pokemonData[i]['pokemonB']['imgSmall'] %>" alt="<%= pokemonData[i]['pokemonB']['name'] %>" class="resultsImg">
+      </div>
+      <div class="col-9">
+        <span class="<% if (previousVote && (pokemonData[i]['pokemonB']['formValue'] === previousVote[pokemonData[i]['formName']])) {%>highlightVote<%}%>">
+          <%= pokemonData[i]['pokemonB']['name'] %>: <%= helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonB']['formValue']) %> Votes
+        </span>
+        <div class="progress" style="height: 20px;">
+          <div class="progress-bar" role="progressbar" 
+            style="width: <%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonB']['formValue']), helpers.totalVotes(votes)) %>%;" 
+            aria-valuenow="<%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonB']['formValue']), helpers.totalVotes(votes)) %>" 
+            aria-valuemin="0" aria-valuemax="100">
+            <%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonB']['formValue']), helpers.totalVotes(votes)) %>%
+          </div>
+        </div>
+      </div>
+      <div class="col"></div>
+    </div>
+    <div class="row">
+      <div class="col"></div>
+      <div class="col">
+        <img src="<%= pokemonData[i]['pokemonC']['imgSmall'] %>" alt="<%= pokemonData[i]['pokemonC']['name'] %>" class="resultsImg">
+      </div>
+      <div class="col-9">
+        <span class="<% if (previousVote && (pokemonData[i]['pokemonC']['formValue'] === previousVote[pokemonData[i]['formName']])) {%>highlightVote<%}%>">
+          <%= pokemonData[i]['pokemonC']['name'] %>: <%= helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonA']['formValue']) %> Votes
+        </span>
+        <div class="progress" style="height: 20px;">
+          <div class="progress-bar" role="progressbar" 
+            style="width: <%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonA']['formValue']), helpers.totalVotes(votes)) %>%;" 
+            aria-valuenow="<%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonA']['formValue']), helpers.totalVotes(votes)) %>" 
+            aria-valuemin="0" aria-valuemax="100">
+            <%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonA']['formValue']), helpers.totalVotes(votes)) %>%
+          </div>
+        </div>
+      </div>
+      <div class="col"></div>
+    </div>
+  </div>
+<% } %>
+
+<!-- Game Results -->
+<div class='container resultsBox'>
+  <h4 class="container resultsGroupHeader">The number of people who have played each game</h4>
+
+  <div class="row">
+  <% for (let i = 0; i < gamesData.length; i++) { %>
+    <div class="col-6">
+      <div class="container">
+        <h5 class='<% if (previousVote && (previousVote['gamesList'].indexOf(gamesData[i]['formValue']) !== -1)) {%>highlightVote<% } %>'>
+          <%= gamesData[i]['gameName'] %> : <%= helpers.totalGameVotes(votes, gamesData[i]['formValue']) %>
+        </h5>
+      </div>
+    </div>
+  <% } %>
+  </div>
+</div>
+
+<!-- Buttons to redirect to the survey page or delete votes -->
+<% if (previousVote && (previousVote.fingerprint === fingerprint)) { %>
+  <a href="/survey"><button class="voteButton btn btn-warning btn-lg float-right">Update Votes</button></a>
+  <form action="/survey?_method=DELETE" method="POST">
+    <input type="submit" class="btn btn-danger btn-lg float-right" value="Delete Votes">
+  </form>
+<% } else { %>
+  <a href="/survey"><button class="voteButton btn btn-success btn-lg float-right">Vote</button></a>
+<% } %>
+
+</div>
+
+
+<!-- Footer -->
 <%- include('./partials/footer') %>
