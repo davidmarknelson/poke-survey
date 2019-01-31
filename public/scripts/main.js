@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 
+// functions for survey and results pages
 app.locals.helpers = {
   add: function(votes, gen, pokemon) {
     let count = 0;

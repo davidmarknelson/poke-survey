@@ -1,29 +1,133 @@
-.card-img-top {
-  padding: 5px;
+/* =============================== */
+/* Application styles */
+/* =============================== */
+
+/* Style body for sticky footer */
+html, body {
+  height: 100%;
+  margin: 0;
 }
 
-[type=submit], .voteButton {
-  margin: 50px 5px;
-}
-
-[type=checkbox] + label {
-  border: 2px solid rgb(114, 153, 180);
-  border-radius: 5px;
-  padding: 2px;
-  margin: 2px;
-  width: 100%;
-  text-align: center;
-}
-
-[type="checkbox"]:checked + label {
-  background-color: rgb(114, 153, 180);
+.content {
+  min-height: 100%;
 }
 
 .banner {
-  background-color: rgb(125, 139, 176);
+  background-image: linear-gradient(to right top, rgb(153, 102, 255), rgb(51, 102, 204));
   -webkit-box-shadow: 0px -8px 15px 10px rgba(0,0,0,0.41);
   -moz-box-shadow: 0px -8px 15px 10px rgba(0,0,0,0.41);
   box-shadow: 0px -8px 15px 10px rgba(0,0,0,0.41);
+  text-align: center;
+  font-family: 'KoHo', sans-serif;
+}
+
+.navbar {
+  -webkit-box-shadow: 0px -8px 15px 10px rgba(0,0,0,0.41);
+  -moz-box-shadow: 0px -8px 15px 10px rgba(0,0,0,0.41);
+  box-shadow: 0px -8px 15px 10px rgba(0,0,0,0.41);
+}
+
+.col {
+  padding: 2px;
+  margin: 5px;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* =============================== */
+/* Footer */
+/* =============================== */
+
+footer {
+  height: 70px;
+  background-color: rgb(33, 37, 41);
+  color: rgb(255, 255, 255);
+}
+
+footer > div > p {
+  font-size: .8em;
+  padding-top: 10px;
+  margin: 0;
+}
+
+/* footer contact span */
+footer > div > p > span {
+  float: right;
+}
+
+.footerLogo {
+  color: rgb(255, 255, 255);
+  margin-left: 5px;
+}
+
+.footerLogo:hover {
+  color: rgb(120, 79, 202);  
+  margin-left: 5px;
+}
+
+/* style bulbapedia link */
+footer > div > p  > a {
+  color: rgb(153, 102, 255);
+}
+
+footer > div > p  > a:hover {
+  color: rgb(179, 140, 255);
+}
+
+/* =============================== */
+/* Landing Page Styles */
+/* =============================== */
+
+/* welcome text styling */
+.welcome {
+  height: 100%;
+}
+
+.welcomeText {
+  text-align: center;
+  font-weight: 700;
+}
+
+.welcome > h1 {
+  font-weight: 700;
+  font-size: 2.8em;
+}
+
+/* some info about website */
+.landingInfoContainer {
+  margin-top: 50px;
+}
+
+.btn-block {
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+/* =============================== */
+/* Survey Page Styles */
+/* =============================== */
+
+/* style vote date box */
+.surveyDateContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.surveyGroupHeader {
+  background-image: linear-gradient(to right top, rgba(153, 102, 255, 0.4), rgba(51, 102, 204, 0.4));
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.pokemonRow {
+  margin: 0;
 }
 
 .form-check-inline {
@@ -32,16 +136,6 @@
 
 .form-check {
   padding: 0;
-}
-
-.pokemonRow {
-  margin: 0;
-}
-
-
-.col-sm, .col {
-  padding: 2px;
-  margin: 5px;
 }
 
 .card {
@@ -57,6 +151,20 @@
   box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.2);
 }
 
+/* checkedPokemon must be last to overwrite the shadow */
+.checkedPokemon, .checkedPokemon:hover{
+  border: 5px solid rgb(120, 79, 202);
+  -webkit-box-shadow: 0px 0px 0px 0px black;
+  -moz-box-shadow: 0px 0px 0px 0px black;
+  box-shadow: 0px 0px 0px 0px black;
+  -webkit-transition: border 2s; /* Safari */
+  transition: border .2s;
+}
+
+.card-img-top {
+  padding: 5px;
+}
+
 .card-body {
   padding: 5px;
 }
@@ -65,63 +173,56 @@
   text-align: center;
   margin-bottom: 0;
   font-size: 3.3vw;
+  font-family: 'KoHo', sans-serif;
+  font-weight: 700;
+}
+
+/* hide radio button */
+[type="radio"] {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+/* hide checkbox button */
+[type="checkbox"] {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
 }
 
 .games-list {
   font-size: 1.5rem;
 }
 
-.resultsGroupHeader {
-  background-color: rgba(114, 153, 180, 0.3);
-  padding: 10px;
-  border-radius: 10px 10px 0 0;
-  width: 100%;
-}
-
-.groupHeader {
-  background-color: rgba(114, 153, 180, 0.3);
-  padding: 10px;
+[type=checkbox] + label {
+  border: 2px solid rgb(102, 68, 172);
   border-radius: 5px;
+  padding: 2px;
+  margin: 2px;
   width: 100%;
-  margin-top: 10px;
+  text-align: center;
 }
 
-.resultsDate {
-  background-color: rgba(114, 153, 180, 0.3);
-  padding: 10px;
-  border-radius: 10px;
+[type="checkbox"]:checked + label {
+  background-color: rgb(102, 68, 172);
+  color: rgb(255, 255, 255);
+}
+
+.submitButton {
+  margin: 50px 0 50px 10px;
+}
+
+/* =============================== */
+/* Results Page Styles */
+/* =============================== */
+
+/* style vote date box */
+.resultsDateContainer {
   width: 100%;
-  margin-top: 10px;
+  display: flex;
+  justify-content: center;
 }
 
-.surveyDate {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.resultsImg {
-  width: 40px;
-  margin-left: 10px;
-}
-
-.progressDefault {
-  background-color: rgb(114, 153, 180);
-}
-
-.mostProgress {
-  background-color: rgb(209, 128, 152);
-}
-
-.highlightVote {
-  font-weight: bold;
-}
-
-.navbar {
-  -webkit-box-shadow: 0px -8px 15px 10px rgba(0,0,0,0.41);
-  -moz-box-shadow: 0px -8px 15px 10px rgba(0,0,0,0.41);
-  box-shadow: 0px -8px 15px 10px rgba(0,0,0,0.41);
-}
-
+/* box container each pokemon generation results */
 .resultsBox {
   margin: 30px 0;
   -webkit-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.2);
@@ -133,49 +234,110 @@
   padding-bottom: 5px;
 }
 
-[type="radio"] {
-  position: absolute !important;
-  clip: rect(1px, 1px, 1px, 1px);
+.resultsGroupHeader {
+  background-image: linear-gradient(to right top, rgba(153, 102, 255, 0.4), rgba(51, 102, 204, 0.4));
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+  width: 100%;
 }
 
-[type="checkbox"] {
-  position: absolute !important;
-  clip: rect(1px, 1px, 1px, 1px);
+.resultsImg {
+  width: 40px;
+  margin-left: 10px;
 }
 
-.carousel {
-  border-radius: 5px;
-  border: 1px solid black;
+.highlightVote {
+  font-weight: bold;
 }
 
-.lightTrioCarousel{
-  border-radius: 5px;
+.progress-bar {
+  background-color: rgb(50, 98, 194);
 }
 
-@media only screen and (max-width: 576px) {
-  .groupHeader {
+/* buttons to change or delete votes */
+.resultsButtonGroup {
+  margin: 50px 0;
+}
+
+.resultsSubmitButton {
+  margin-left: 10px;
+}
+
+/* =============================== */
+/* Survey and Results page styles */
+/* =============================== */
+
+.resultsDate {
+  background-image: linear-gradient(to right top, rgba(153, 102, 255, 0.4), rgba(51, 102, 204, 0.4));
+  padding: 10px;
+  border-radius: 10px;
+  margin: 0;
+}
+
+.instructions {
+  font-size: .5em;
+}
+
+@media only screen and (max-width: 575px) {
+  .surveyGroupHeader {
     border-radius: 0;
+  }
+
+  .resultsDate {
+    border-radius: 0;
+    width: 100%;
   }
 }
 
-.welcome {
-  height: 100%;
+/* =============================== */
+/* Contacts Page Styling */
+/* =============================== */
+
+.infoContainer {
+  margin-top: 50px;
 }
 
-.welcomeText {
+.contactHeaders, .info {
   text-align: center;
 }
 
-.btn-block {
-  margin-top: 20px;
+/* Creater info, bulbapedia link styling */
+.info {
+  margin-bottom: 40px;
 }
 
-/* checkedPokemon must be last to overwrite the shadow */
-.checkedPokemon, .checkedPokemon:hover{
-  border: 5px solid rgb(114, 153, 180);
-  -webkit-box-shadow: 0px 0px 0px 0px black;
-  -moz-box-shadow: 0px 0px 0px 0px black;
-  box-shadow: 0px 0px 0px 0px black;
-  -webkit-transition: border 2s; /* Safari */
-  transition: border .2s;
+.info > h4 {
+  margin-bottom: 30px;  
+}
+
+.info > p > a {
+  color: rgb(120, 79, 202);
+}
+
+.info > p > a:hover {
+  color: rgb(179, 140, 255);  
+}
+
+.logo {
+  margin-bottom: 50px;
+  color: rgb(33, 37, 41);
+}
+
+.logo:hover {
+  margin-bottom: 50px;
+  color: rgb(120, 79, 202);  
+}
+
+/* =============================== */
+/* Survey, Results, Contacts Page Styling */
+/* =============================== */
+
+.banner > div > h1 {
+  font-weight: 700;
+  font-size: 3.2em;
+}
+
+.banner > div > h3 {
+  font-weight: 700;
+  font-size: 2em;
 }

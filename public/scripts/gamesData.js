@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 
+// data of Pokemon games for survey and results pages
 app.locals.gamesList = [
   {
     gameName: 'Red and Blue',

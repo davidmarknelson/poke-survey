@@ -1,3 +1,4 @@
+// functions to highlight selected pokemon
 let list = document.querySelectorAll('.radioInput');
 
 function changeDefaultCheckedBackground() {

@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 
+// Data of pokemon for survey and results pages
 app.locals.pokemonData = [
   {
     title: 'Generation 1 Starters',
