@@ -14,7 +14,7 @@
 <!-- Date of previous vote -->
 <% if (previousVote && (previousVote.fingerprint === fingerprint)) { %>
   <div class="container surveyDateContainer">
-    <h4 class="resultsDate d-inline">You voted on <%= helpers.getDateString(previousVote.date) %> <span class="instructions">(you can change or delete your votes)</span></h4>
+    <h4 class="surveyResultsDate d-inline">You voted on <%= helpers.getDateString(previousVote.date) %> <span class="instructions">(you can change or delete your votes)</span></h4>
   </div>
 <% } %>
 
@@ -25,7 +25,7 @@
 <% for (let i = 0; i < pokemonData.length; i++) { %>
   <!-- Pokemon Generation Header -->
   <div class="row">
-    <h3 class="surveyGroupHeader"><%= pokemonData[i]['title'] %> <span class="instructions">(choose one)</span></h3>
+    <h4 class="surveyGroupHeader"><%= pokemonData[i]['title'] %> <span class="instructions">(choose one)</span></h4>
   </div>
   <div class="row pokemonRow">
     <!-- Pokemon A -->
