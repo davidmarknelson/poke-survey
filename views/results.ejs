@@ -19,6 +19,9 @@
   </div>
 <% } %>
 
+<!-- Total Votes Variable -->
+<% let totalVotes = helpers.totalVotes(votes); %>
+
 <!-- Pokemon Results -->
 <div class='container'>
 <% for (let i = 0; i < pokemonData.length; i++) { %>
@@ -43,10 +46,10 @@
         <!-- Progress Bar -->
         <div class="progress" style="height: 20px;">
           <div class="progress-bar" role="progressbar" 
-            style="width: <%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonA']['formValue']), helpers.totalVotes(votes)) %>%;" 
-            aria-valuenow="<%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonA']['formValue']), helpers.totalVotes(votes)) %>" 
+            style="width: <%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonA']['formValue']), totalVotes) %>%;" 
+            aria-valuenow="<%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonA']['formValue']), totalVotes) %>" 
             aria-valuemin="0" aria-valuemax="100">
-            <%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonA']['formValue']), helpers.totalVotes(votes)) %>%
+            <%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonA']['formValue']), totalVotes) %>%
           </div>
         </div>
       </div>
@@ -66,10 +69,10 @@
         <!-- Progress Bar -->
         <div class="progress" style="height: 20px;">
           <div class="progress-bar" role="progressbar" 
-            style="width: <%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonB']['formValue']), helpers.totalVotes(votes)) %>%;" 
-            aria-valuenow="<%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonB']['formValue']), helpers.totalVotes(votes)) %>" 
+            style="width: <%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonB']['formValue']), totalVotes) %>%;" 
+            aria-valuenow="<%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonB']['formValue']), totalVotes) %>" 
             aria-valuemin="0" aria-valuemax="100">
-            <%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonB']['formValue']), helpers.totalVotes(votes)) %>%
+            <%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonB']['formValue']), totalVotes) %>%
           </div>
         </div>
       </div>
@@ -89,10 +92,10 @@
         <!-- Progress Bar -->
         <div class="progress" style="height: 20px;">
           <div class="progress-bar" role="progressbar" 
-            style="width: <%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonA']['formValue']), helpers.totalVotes(votes)) %>%;" 
-            aria-valuenow="<%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonA']['formValue']), helpers.totalVotes(votes)) %>" 
+            style="width: <%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonA']['formValue']), totalVotes) %>%;" 
+            aria-valuenow="<%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonA']['formValue']), totalVotes) %>" 
             aria-valuemin="0" aria-valuemax="100">
-            <%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonA']['formValue']), helpers.totalVotes(votes)) %>%
+            <%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonA']['formValue']), totalVotes) %>%
           </div>
         </div>
       </div>
@@ -133,6 +136,7 @@
 <% } %>
 
 </div>
+
 
 
 <!-- Footer -->

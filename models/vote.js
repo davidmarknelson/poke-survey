@@ -25,7 +25,7 @@ const voteSchema = new mongoose.Schema({
   taoTrio: String,
   auraTrio: String,
   lightTrio: String,
-  gamesList: Array
+  gamesList: Array,
 });
 
 module.exports = mongoose.model('Vote', voteSchema);
