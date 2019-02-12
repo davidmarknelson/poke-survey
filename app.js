@@ -18,16 +18,21 @@ app.use(helmet());
 // Set up express-fingerprint object
 app.use(Fingerprint());
 
+var store = new MongoDBStore({
+  uri: process.env.DATABASE_URL,
+  collection: 'mySessions'
+});
+
 // Set up express-flash
 app.set('trust proxy', 1) // trust first proxy
 app.use(session({
   cookie: { 
-    sercure: true,
+    secure: true,
     maxAge: 1000 * 60 * 60 * 24 * 7 }, // 1 week
-  store: new MongoDBStore(),
-  secret: process.env.SESSION_SECRET,
+  store: store,
   saveUninitialized: true,
-  resave: true
+  resave: true,
+  secret: process.env.SESSION_SECRET
 }));
 app.use(flash());
 
