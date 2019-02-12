@@ -4,7 +4,7 @@ const app = express();
 // functions for survey and results pages
 app.locals.helpers = {
   add: function(votes, gen, pokemon) {
-    if (votes === 'undefined') { return 0 }
+    if (votes === undefined) { return 0 }
     let count = 0;
     for (let i = 0; i < votes.length; i++) {
       if (votes[i][gen] === pokemon) {
@@ -14,7 +14,7 @@ app.locals.helpers = {
     return count;
   },
   totalVotes: function(votes) {
-    if (votes === 'undefined') { return 0 }
+    if (votes === undefined) { return 0 }
     let count = 0;
     for (let i = 0; i < votes.length; i++) {
       count += 1;
@@ -27,7 +27,7 @@ app.locals.helpers = {
     return percent;
   },
   totalGameVotes: function(votes, gameFormValue) {
-    if (votes === 'undefined') { return 0 }
+    if (votes === undefined) { return 0 }
     let count = 0;
     for (let i = 0; i < votes.length; i++) {
       let arrayNum = votes[i]['gamesList'].indexOf(gameFormValue);

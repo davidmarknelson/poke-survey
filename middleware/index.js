@@ -70,7 +70,7 @@ const middleware = {
     }
   },
   validateGames: function(req, res, next) {
-    if (res.locals.newVote.gamesList === 'undefined') { next() }
+    if (res.locals.newVote.gamesList === undefined) { return next(); }
     for (var i = 0; i < res.locals.newVote.gamesList.length; i++) {
       if (res.locals.newVote.gamesList[i] !== 'redBlue' && 
           res.locals.newVote.gamesList[i] !== 'goldSilver' && 
