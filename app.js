@@ -7,6 +7,7 @@ const bodyParser      = require('body-parser');
 const Fingerprint     = require('express-fingerprint');
 const flash           = require('express-flash');
 const session         = require('express-session');
+const MongoDBStore    = require('connect-mongodb-session')(session);
 const helmet          = require('helmet');
 const favicon         = require('express-favicon');
 const surveyRoutes    = require('./routes/routes');
@@ -17,12 +18,18 @@ app.use(helmet());
 // Set up express-fingerprint object
 app.use(Fingerprint());
 
+var store = new MongoDBStore({
+  uri: process.env.DATABASE_URL,
+  collection: 'mySessions'
+});
+
 // Set up express-flash
 app.set('trust proxy', 1) // trust first proxy
 app.use(session({
-  cookie: { maxAge: 60000 },
+  cookie: { maxAge: 1000 * 60 * 60 * 24 * 7 }, // 1 week
+  store: store,
   saveUninitialized: true,
-  resave: 'true',
+  resave: true,
   secret: process.env.SESSION_SECRET
 }));
 app.use(flash());
