@@ -1,8 +1,8 @@
 <!-- Header -->
 <%- include('./partials/header') %>
 
-<div class="jumbotron jumbotron-fluid banner">
-  <div class="container">
+<div class='jumbotron jumbotron-fluid banner'>
+  <div class='container'>
     <h1><em>Pok&#233-Survey</em></h1>
     <h3>Choose your favorite pok&#233mon!</h3>
   </div>
@@ -13,34 +13,34 @@
 
 <!-- Date of previous vote -->
 <% if (previousVote && (previousVote.fingerprint === fingerprint)) { %>
-  <div class="container surveyDateContainer">
-    <h4 class="surveyResultsDate d-inline">You voted on <%= helpers.getDateString(previousVote.date) %> <span class="instructions">(you can change or delete your votes)</span></h4>
+  <div class='container surveyDateContainer'>
+    <h4 class='surveyResultsDate d-inline'>You voted on <%= helpers.getDateString(previousVote.date) %> <span class='instructions'>(you can change or delete your votes)</span></h4>
   </div>
 <% } %>
 
 <!-- Start of the survey -->
-<form action="/survey" method="POST">
+<form action='/survey' method='POST'>
 
-<div class="container">
+<div class='container'>
 <% for (let i = 0; i < pokemonData.length; i++) { %>
   <!-- Pokemon Generation Header -->
-  <div class="row">
-    <h4 class="surveyGroupHeader"><%= pokemonData[i]['title'] %> <span class="instructions">(choose one)</span></h4>
+  <div class='row'>
+    <h4 class='surveyGroupHeader'><%= pokemonData[i]['title'] %> <span class='instructions'>(choose one)</span></h4>
   </div>
-  <div class="row pokemonRow">
+  <div class='row pokemonRow'>
     <!-- Pokemon A -->
-    <div class="col">
-      <div class="form-check form-check-inline h-100">
-        <label class="form-check-label h-100" for="<%= pokemonData[i]['pokemonA']['formValue'] %>">
+    <div class='col'>
+      <div class='form-check form-check-inline h-100'>
+        <label class='form-check-label h-100' for='<%= pokemonData[i]['pokemonA']['formValue'] %>'>
           <!-- Card A -->
-          <div class="card h-100">
+          <div class='card h-100'>
             <!-- Pokemon Image -->
-            <img class="card-img-top" src="<%= pokemonData[i]['pokemonA']['imgBig'] %>" alt="<%= pokemonData[i]['pokemonA']['formValue'] %>">
-            <div class="card-body">
+            <img class='card-img-top' src='<%= pokemonData[i]['pokemonA']['img'] %>' alt='<%= pokemonData[i]['pokemonA']['formValue'] %>'>
+            <div class='card-body'>
               <!-- Pokemon Name -->
-              <h5 class="card-title"><%= pokemonData[i]['pokemonA']['name'] %></h5>
+              <h5 class='card-title'><%= pokemonData[i]['pokemonA']['name'] %></h5>
               <!-- Radio Button -->
-              <input class="form-check-input radioInput" type="radio" id="<%= pokemonData[i]['pokemonA']['formValue'] %>" name="<%= pokemonData[i]['formName'] %>" value="<%= pokemonData[i]['pokemonA']['formValue'] %>" 
+              <input class='form-check-input radioInput' type='radio' id='<%= pokemonData[i]['pokemonA']['formValue'] %>' name='<%= pokemonData[i]['formName'] %>' value='<%= pokemonData[i]['pokemonA']['formValue'] %>' 
                 <% if (previousVote && (pokemonData[i]['pokemonA']['formValue'] === previousVote[pokemonData[i]['formName']])) {%>checked<%}%> 
                 required
               >
@@ -50,18 +50,18 @@
       </div>
     </div>
     <!-- Pokemon B -->
-    <div class="col">
-      <div class="form-check form-check-inline h-100">
-        <label class="form-check-label h-100" for="<%= pokemonData[i]['pokemonB']['formValue'] %>">
+    <div class='col'>
+      <div class='form-check form-check-inline h-100'>
+        <label class='form-check-label h-100' for='<%= pokemonData[i]['pokemonB']['formValue'] %>'>
           <!-- Card B -->
-          <div class="card h-100">
+          <div class='card h-100'>
             <!-- Pokemon Image -->
-            <img class="card-img-top" src="<%= pokemonData[i]['pokemonB']['imgBig'] %>" alt="<%= pokemonData[i]['pokemonB']['formValue'] %>">
-            <div class="card-body">
+            <img class='card-img-top' src='<%= pokemonData[i]['pokemonB']['img'] %>' alt='<%= pokemonData[i]['pokemonB']['formValue'] %>'>
+            <div class='card-body'>
               <!-- Pokemon Name -->
-              <h5 class="card-title"><%= pokemonData[i]['pokemonB']['name'] %></h5>
+              <h5 class='card-title'><%= pokemonData[i]['pokemonB']['name'] %></h5>
               <!-- Radio Button -->
-              <input class="form-check-input radioInput" type="radio" id="<%= pokemonData[i]['pokemonB']['formValue'] %>" name="<%= pokemonData[i]['formName'] %>" value="<%= pokemonData[i]['pokemonB']['formValue'] %>" 
+              <input class='form-check-input radioInput' type='radio' id='<%= pokemonData[i]['pokemonB']['formValue'] %>' name='<%= pokemonData[i]['formName'] %>' value='<%= pokemonData[i]['pokemonB']['formValue'] %>' 
                 <% if (previousVote && (pokemonData[i]['pokemonB']['formValue'] === previousVote[pokemonData[i]['formName']])) {%>checked<%}%>
               >
             </div>
@@ -70,18 +70,18 @@
       </div>
     </div>
     <!-- Pokemon C -->
-    <div class="col">
-      <div class="form-check form-check-inline h-100">
-        <label class="form-check-label h-100" for="<%= pokemonData[i]['pokemonC']['formValue'] %>">
+    <div class='col'>
+      <div class='form-check form-check-inline h-100'>
+        <label class='form-check-label h-100' for='<%= pokemonData[i]['pokemonC']['formValue'] %>'>
           <!-- Card C -->
-          <div class="card h-100">
+          <div class='card h-100'>
             <!-- Pokemon Image -->
-            <img class="card-img-top" src="<%= pokemonData[i]['pokemonC']['imgBig'] %>" alt="<%= pokemonData[i]['pokemonC']['formValue'] %>">
-            <div class="card-body">
+            <img class='card-img-top' src='<%= pokemonData[i]['pokemonC']['img'] %>' alt='<%= pokemonData[i]['pokemonC']['formValue'] %>'>
+            <div class='card-body'>
               <!-- Pokemon Name -->
-              <h5 class="card-title"><%= pokemonData[i]['pokemonC']['name'] %></h5>
+              <h5 class='card-title'><%= pokemonData[i]['pokemonC']['name'] %></h5>
               <!-- Radio Button -->
-              <input class="form-check-input radioInput" type="radio" id="<%= pokemonData[i]['pokemonC']['formValue'] %>" name="<%= pokemonData[i]['formName'] %>" value="<%= pokemonData[i]['pokemonC']['formValue'] %>" 
+              <input class='form-check-input radioInput' type='radio' id='<%= pokemonData[i]['pokemonC']['formValue'] %>' name='<%= pokemonData[i]['formName'] %>' value='<%= pokemonData[i]['pokemonC']['formValue'] %>' 
                 <% if (previousVote && (pokemonData[i]['pokemonC']['formValue'] === previousVote[pokemonData[i]['formName']])) {%>checked<%}%>
               >
             </div>
@@ -93,21 +93,21 @@
 <% } %>
 
 <!-- List of Games Header -->
-<div class="row">
-  <h3 class="surveyGroupHeader">List of Games <span class="instructions">(choose any you have played)</span></h3>
+<div class='row'>
+  <h3 class='surveyGroupHeader'>List of Games <span class='instructions'>(choose any you have played)</span></h3>
 </div>
 
-<div class="row games-list">
+<div class='row games-list'>
 <% for (let i = 0; i < gamesData.length; i++) { %>
   <!-- Game Name -->
-  <div class="col-6">
-    <div class="form-check">
+  <div class='col-6'>
+    <div class='form-check'>
       <!-- Checkbox -->
-      <input class="form-check-input" type="checkbox" name="<%= gamesData[i]['formName'] %>" value="<%= gamesData[i]['formValue'] %>" id="<%= gamesData[i]['formValue'] %>" 
+      <input class='form-check-input' type='checkbox' name='<%= gamesData[i]['formName'] %>' value='<%= gamesData[i]['formValue'] %>' id='<%= gamesData[i]['formValue'] %>' 
         <% if (previousVote && (previousVote['gamesList'].indexOf(gamesData[i]['formValue']) !== -1)) {%>checked<% } %>
       >
       <!-- Pokemon Name -->
-      <label class="form-check-label" for="<%= gamesData[i]['formValue'] %>">
+      <label class='form-check-label' for='<%= gamesData[i]['formValue'] %>'>
         <%= gamesData[i]['gameName'] %>
       </label>
     </div>
@@ -117,21 +117,21 @@
 </div>
 
   <!-- Submit Buttons -->
-  <div class="container">
+  <div class='container'>
     <% if (previousVote && (previousVote.fingerprint === fingerprint)) { %>
-      <div class="d-flex justify-content-end">
-        <input type="submit" class="btn btn-warning btn-lg d-inline submitButton" formaction="/survey?_method=PUT" value="Update Votes">
-        <input type="submit" class="btn btn-danger btn-lg d-inline submitButton" formaction="/survey?_method=DELETE" value="Delete Votes">
+      <div class='d-flex justify-content-end'>
+        <input type='submit' class='btn btn-warning btn-lg d-inline submitButton' formaction='/survey?_method=PUT' value='Update Votes'>
+        <input type='submit' class='btn btn-danger btn-lg d-inline submitButton' formaction='/survey?_method=DELETE' value='Delete Votes'>
       </div>
     <% } else { %>
-      <div class="d-flex justify-content-end">
-        <input type="submit" class="btn btn-success btn-lg d-inline submitButton" value="Submit Votes">
+      <div class='d-flex justify-content-end'>
+        <input type='submit' class='btn btn-success btn-lg d-inline submitButton' value='Submit Votes'>
       </div>
     <% } %>
   </div>
 </form>
 
 <!-- Scripts for changing class for radio buttons -->
-<script src="scripts/domFunctions.js"></script>
+<script src='scripts/domFunctions.js'></script>
 <!-- Footer -->
 <%- include('./partials/footer') %>

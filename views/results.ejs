@@ -2,8 +2,8 @@
 <%- include('./partials/header') %>
 
 <!-- Banner -->
-<div class="jumbotron jumbotron-fluid banner">
-  <div class="container">
+<div class='jumbotron jumbotron-fluid banner'>
+  <div class='container'>
     <h1><em>Pok&#233-Survey</em> Results</h1>
     <h3>Here are everyone's favorite pok&#233mon!</h3>
   </div>
@@ -15,8 +15,8 @@
 
 <!-- Date of previous vote -->
 <% if (previousVote && (previousVote.fingerprint === fingerprint)) { %>
-  <div class="container resultsDateContainer">
-    <h4 class="resultsDate d-inline">You voted on <%= helpers.getDateString(previousVote.date) %> <span class="instructions">(your results will be in <strong>bold</strong>)</span></h4>
+  <div class='container resultsDateContainer'>
+    <h4 class='resultsDate d-inline'>You voted on <%= helpers.getDateString(previousVote.date) %> <span class='instructions'>(your results will be in <strong>bold</strong>)</span></h4>
   </div>
 <% } %>
 
@@ -26,93 +26,93 @@
 <!-- Pokemon Results -->
 <div class='container'>
 <% for (let i = 0; i < pokemonData.length; i++) { %>
-  <div class="container resultsBox">
+  <div class='container resultsBox'>
     <!-- Pokemon Generation Name -->
-    <h4 class="resultsGroupHeader">
-      <span class="container">
+    <h4 class='resultsGroupHeader'>
+      <span class='container'>
         <%= pokemonData[i]['title'] %>
       </span>
     </h4>
-    <div class="row">
-      <div class="col"></div>
+    <div class='row'>
+      <div class='col'></div>
       <!-- Pokemon Image A -->
-      <div class="col">
-        <img src="<%= pokemonData[i]['pokemonA']['imgSmall'] %>" alt="<%= pokemonData[i]['pokemonA']['name'] %>" class="resultsImg">
+      <div class='col'>
+        <img src='<%= pokemonData[i]['pokemonA']['img'] %>' alt='<%= pokemonData[i]['pokemonA']['name'] %>' class='resultsImg'>
       </div>
-      <div class="col-9">
+      <div class='col-9'>
         <!-- Pokemon Name A -->
-        <span class="<% if (previousVote && (pokemonData[i]['pokemonA']['formValue'] === previousVote[pokemonData[i]['formName']])) {%>highlightVote<%}%>">
+        <span class='<% if (previousVote && (pokemonData[i]['pokemonA']['formValue'] === previousVote[pokemonData[i]['formName']])) {%>highlightVote<%}%>'>
           <%= pokemonData[i]['pokemonA']['name'] %>: <%= helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonA']['formValue']) %> Votes
         </span>
         <!-- Progress Bar -->
-        <div class="progress" style="height: 20px;">
-          <div class="progress-bar" role="progressbar" 
-            style="width: <%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonA']['formValue']), totalVotes) %>%;" 
-            aria-valuenow="<%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonA']['formValue']), totalVotes) %>" 
-            aria-valuemin="0" aria-valuemax="100">
+        <div class='progress' style='height: 20px;'>
+          <div class='progress-bar' role='progressbar' 
+            style='width: <%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonA']['formValue']), totalVotes) %>%;' 
+            aria-valuenow='<%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonA']['formValue']), totalVotes) %>' 
+            aria-valuemin='0' aria-valuemax='100'>
             <%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonA']['formValue']), totalVotes) %>%
           </div>
         </div>
       </div>
-      <div class="col"></div>
+      <div class='col'></div>
     </div>
-    <div class="row">
-      <div class="col"></div>
+    <div class='row'>
+      <div class='col'></div>
       <!-- Pokemon Image B -->
-      <div class="col">
-        <img src="<%= pokemonData[i]['pokemonB']['imgSmall'] %>" alt="<%= pokemonData[i]['pokemonB']['name'] %>" class="resultsImg">
+      <div class='col'>
+        <img src='<%= pokemonData[i]['pokemonB']['img'] %>' alt='<%= pokemonData[i]['pokemonB']['name'] %>' class='resultsImg'>
       </div>
-      <div class="col-9">
+      <div class='col-9'>
         <!-- Pokemon Name B -->
-        <span class="<% if (previousVote && (pokemonData[i]['pokemonB']['formValue'] === previousVote[pokemonData[i]['formName']])) {%>highlightVote<%}%>">
+        <span class='<% if (previousVote && (pokemonData[i]['pokemonB']['formValue'] === previousVote[pokemonData[i]['formName']])) {%>highlightVote<%}%>'>
           <%= pokemonData[i]['pokemonB']['name'] %>: <%= helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonB']['formValue']) %> Votes
         </span>
         <!-- Progress Bar -->
-        <div class="progress" style="height: 20px;">
-          <div class="progress-bar" role="progressbar" 
-            style="width: <%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonB']['formValue']), totalVotes) %>%;" 
-            aria-valuenow="<%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonB']['formValue']), totalVotes) %>" 
-            aria-valuemin="0" aria-valuemax="100">
+        <div class='progress' style='height: 20px;'>
+          <div class='progress-bar' role='progressbar' 
+            style='width: <%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonB']['formValue']), totalVotes) %>%;' 
+            aria-valuenow='<%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonB']['formValue']), totalVotes) %>' 
+            aria-valuemin='0' aria-valuemax='100'>
             <%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonB']['formValue']), totalVotes) %>%
           </div>
         </div>
       </div>
-      <div class="col"></div>
+      <div class='col'></div>
     </div>
-    <div class="row">
-      <div class="col"></div>
+    <div class='row'>
+      <div class='col'></div>
       <!-- Pokemon Image C -->
-      <div class="col">
-        <img src="<%= pokemonData[i]['pokemonC']['imgSmall'] %>" alt="<%= pokemonData[i]['pokemonC']['name'] %>" class="resultsImg">
+      <div class='col'>
+        <img src='<%= pokemonData[i]['pokemonC']['img'] %>' alt='<%= pokemonData[i]['pokemonC']['name'] %>' class='resultsImg'>
       </div>
-      <div class="col-9">
+      <div class='col-9'>
         <!-- Pokemon Name C -->
-        <span class="<% if (previousVote && (pokemonData[i]['pokemonC']['formValue'] === previousVote[pokemonData[i]['formName']])) {%>highlightVote<%}%>">
+        <span class='<% if (previousVote && (pokemonData[i]['pokemonC']['formValue'] === previousVote[pokemonData[i]['formName']])) {%>highlightVote<%}%>'>
           <%= pokemonData[i]['pokemonC']['name'] %>: <%= helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonC']['formValue']) %> Votes
         </span>
         <!-- Progress Bar -->
-        <div class="progress" style="height: 20px;">
-          <div class="progress-bar" role="progressbar" 
-            style="width: <%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonC']['formValue']), totalVotes) %>%;" 
-            aria-valuenow="<%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonC']['formValue']), totalVotes) %>" 
-            aria-valuemin="0" aria-valuemax="100">
+        <div class='progress' style='height: 20px;'>
+          <div class='progress-bar' role='progressbar' 
+            style='width: <%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonC']['formValue']), totalVotes) %>%;' 
+            aria-valuenow='<%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonC']['formValue']), totalVotes) %>' 
+            aria-valuemin='0' aria-valuemax='100'>
             <%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonC']['formValue']), totalVotes) %>%
           </div>
         </div>
       </div>
-      <div class="col"></div>
+      <div class='col'></div>
     </div>
   </div>
 <% } %>
 
 <!-- Game Results -->
 <div class='container resultsBox'>
-  <h4 class="container resultsGroupHeader">The number of people who have played each game</h4>
+  <h4 class='container resultsGroupHeader'>The number of people who have played each game</h4>
 
-  <div class="row">
+  <div class='row'>
   <% for (let i = 0; i < gamesData.length; i++) { %>
-    <div class="col-6">
-      <div class="container">
+    <div class='col-6'>
+      <div class='container'>
         <h5 class='<% if (previousVote && (previousVote['gamesList'].indexOf(gamesData[i]['formValue']) !== -1)) {%>highlightVote<% } %>'>
           <%= gamesData[i]['gameName'] %> : <%= helpers.totalGameVotes(votes, gamesData[i]['formValue']) %>
         </h5>
@@ -124,15 +124,15 @@
 
 <!-- Buttons to redirect to the survey page or delete votes -->
 <% if (previousVote && (previousVote.fingerprint === fingerprint)) { %>
-<div class="d-flex justify-content-end resultsButtonGroup">
-  <a href="/survey"><button class="btn btn-warning btn-lg d-inline">Update Votes</button></a>
-  <form action="/survey?_method=DELETE" method="POST" class="d-inline">
-    <input type="submit" class="btn btn-danger btn-lg d-inline resultsSubmitButton" value="Delete Votes">
+<div class='d-flex justify-content-end resultsButtonGroup'>
+  <a href='/survey'><button class='btn btn-warning btn-lg d-inline'>Update Votes</button></a>
+  <form action='/survey?_method=DELETE' method='POST' class='d-inline'>
+    <input type='submit' class='btn btn-danger btn-lg d-inline resultsSubmitButton' value='Delete Votes'>
   </form>
 </div>
 <% } else { %>
-  <div class="d-flex justify-content-end resultsButtonGroup">
-    <a href="/survey"><button class="btn btn-success btn-lg d-inline">Vote Now</button></a>
+  <div class='d-flex justify-content-end resultsButtonGroup'>
+    <a href='/survey'><button class='btn btn-success btn-lg d-inline'>Vote Now</button></a>
   </div>
 <% } %>
 
