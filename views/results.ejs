@@ -12,6 +12,7 @@
 <!-- Flash messages -->
 <%- include('./partials/flash') %>
 
+
 <!-- Date of previous vote -->
 <% if (previousVote && (previousVote.fingerprint === fingerprint)) { %>
   <div class="container resultsDateContainer">
@@ -87,15 +88,15 @@
       <div class="col-9">
         <!-- Pokemon Name C -->
         <span class="<% if (previousVote && (pokemonData[i]['pokemonC']['formValue'] === previousVote[pokemonData[i]['formName']])) {%>highlightVote<%}%>">
-          <%= pokemonData[i]['pokemonC']['name'] %>: <%= helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonA']['formValue']) %> Votes
+          <%= pokemonData[i]['pokemonC']['name'] %>: <%= helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonC']['formValue']) %> Votes
         </span>
         <!-- Progress Bar -->
         <div class="progress" style="height: 20px;">
           <div class="progress-bar" role="progressbar" 
-            style="width: <%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonA']['formValue']), totalVotes) %>%;" 
-            aria-valuenow="<%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonA']['formValue']), totalVotes) %>" 
+            style="width: <%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonC']['formValue']), totalVotes) %>%;" 
+            aria-valuenow="<%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonC']['formValue']), totalVotes) %>" 
             aria-valuemin="0" aria-valuemax="100">
-            <%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonA']['formValue']), totalVotes) %>%
+            <%= helpers.percentageOfVotes(helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonC']['formValue']), totalVotes) %>%
           </div>
         </div>
       </div>
