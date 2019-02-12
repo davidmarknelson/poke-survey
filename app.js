@@ -31,13 +31,6 @@ app.use(session({
 }));
 app.use(flash());
 
-app.use(function(req,res,next){
-  if (!req.session) {
-    return next(new Error('No req.session')); //handle error
-  }
-  next() //otherwise continue
-});
-
 app.use(function(req, res, next) {
   res.locals.error = req.flash("error");
   res.locals.success = req.flash("success");
