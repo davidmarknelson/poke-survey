@@ -4,7 +4,9 @@
   "description": "A survey for people to choose their favorite pokemon.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start_local": "nodemon -r dotenv/config app.js",
+    "start": "node app.js"
   },
   "author": "David Nelson",
   "license": "ISC",
@@ -20,5 +22,8 @@
     "method-override": "^3.0.0",
     "mongoose": "^5.4.0",
     "validator": "^10.11.0"
+  },
+  "devDependencies": {
+    "dotenv": "^6.2.0"
   }
 }

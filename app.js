@@ -10,7 +10,6 @@ const session         = require('express-session');
 const helmet          = require('helmet');
 const favicon         = require('express-favicon');
 const surveyRoutes    = require('./routes/routes');
-const port            = 3000;
 
 // Set up security
 app.use(helmet());
@@ -24,7 +23,7 @@ app.use(session({
   cookie: { maxAge: 60000 },
   saveUninitialized: true,
   resave: 'true',
-  secret: 'secret'
+  secret: process.env.SESSION_SECRET
 }));
 app.use(flash());
 
@@ -48,7 +47,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // MongoDB and Mongoose settings
-mongoose.connect('mongodb://localhost/pokesurvey-dev', { useNewUrlParser: true });
+mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
 mongoose.set('useFindAndModify', false);
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -59,4 +58,4 @@ db.once('open', function() {
 // Routes
 app.use(surveyRoutes);
 
-app.listen(port, () => console.log(`Poke-Survey listening on port ${port}!`));
+app.listen(process.env.PORT, () => console.log(`Poke-Survey listening on port ${process.env.PORT}!`));
