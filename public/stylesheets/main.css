@@ -46,25 +46,24 @@ footer {
   color: rgb(255, 255, 255);
 }
 
-footer > div > p {
+footer > div > div > div > p {
   font-size: .8em;
   padding-top: 10px;
   margin: 0;
 }
 
-/* footer contact span */
-footer > div > p > span {
-  float: right;
-}
-
 .footerLogo {
   color: rgb(255, 255, 255);
-  margin-left: 5px;
+  margin-left: 10px;
+  margin-top: 10px;
+  float: right;
 }
 
 .footerLogo:hover {
   color: rgb(120, 79, 202);  
-  margin-left: 5px;
+  margin-left: 10px;
+  margin-top: 10px;
+  float: right;
 }
 
 /* style bulbapedia link */
