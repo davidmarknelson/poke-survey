@@ -70,7 +70,10 @@ const middleware = {
     }
   },
   validateGames: function(req, res, next) {
-    if (res.locals.newVote.gamesList === undefined) { return next(); }
+    if (res.locals.newVote.gamesList === undefined) {
+      res.locals.newVote.gamesList = [''];
+      return next();
+    }
     for (var i = 0; i < res.locals.newVote.gamesList.length; i++) {
       if (res.locals.newVote.gamesList[i] !== 'redBlue' && 
           res.locals.newVote.gamesList[i] !== 'goldSilver' && 
@@ -79,7 +82,8 @@ const middleware = {
           res.locals.newVote.gamesList[i] !== 'blackWhite' && 
           res.locals.newVote.gamesList[i] !== 'blackWhite2' && 
           res.locals.newVote.gamesList[i] !== 'xY' && 
-          res.locals.newVote.gamesList[i] !== 'sunMoon') {
+          res.locals.newVote.gamesList[i] !== 'sunMoon' && 
+          res.locals.newVote.gamesList[i] !== '') {
         req.flash('error', 'Sorry, there was an error while submitting one of your game votes! ');  
         res.locals.newVote.gamesList[i] = '';
       }
