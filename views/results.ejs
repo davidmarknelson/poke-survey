@@ -27,25 +27,25 @@
 
 <!-- Pokemon Results -->
 <div class='container'>
-<% for (let i = 0; i < pokemonData.length; i++) { %>
+<% for (let pokemon of pokemonData) { %>
   <div class='container resultsBox'>
     <!-- Pokemon Generation Name -->
     <h4 class='resultsGroupHeader'>
       <span class='container'>
-        <%= pokemonData[i]['title'] %>
+        <%= pokemon.title %>
       </span>
     </h4>
     <div class='row'>
       <div class='col'></div>
       <!-- Pokemon Image A -->
       <div class='col'>
-        <img src='<%= pokemonData[i]['pokemonA']['img'] %>' alt='<%= pokemonData[i]['pokemonA']['name'] %>' class='resultsImg'>
+        <img src='<%= pokemon.pokemonA.img %>' alt='<%= pokemon.pokemonA.name %>' class='resultsImg'>
       </div>
       <div class='col-9'>
         <!-- Pokemon A Name and variable -->
-        <% let addA = helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonA']['formValue']) %>
-        <span class='<% if (previousVote && (pokemonData[i]['pokemonA']['formValue'] === previousVote[pokemonData[i]['formName']])) {%>highlightVote<%}%>'>
-          <%= pokemonData[i]['pokemonA']['name'] %>: <%= addA %><% if (addA === 1) { %> Vote<% } else { %> Votes<% } %>
+        <% let addA = helpers.add(votes, pokemon.formName, pokemon.pokemonA.formValue) %>
+        <span class='<% if (previousVote && (pokemon.pokemonA.formValue === previousVote[pokemon.formName])) {%>highlightVote<%}%>'>
+          <%= pokemon.pokemonA.name %>: <%= addA %><% if (addA === 1) { %> Vote<% } else { %> Votes<% } %>
         </span>
         <!-- Progress Bar and percentage variable -->
         <% let percentA = helpers.percentageOfVotes(addA, totalVotes) %>
@@ -64,13 +64,13 @@
       <div class='col'></div>
       <!-- Pokemon Image B -->
       <div class='col'>
-        <img src='<%= pokemonData[i]['pokemonB']['img'] %>' alt='<%= pokemonData[i]['pokemonB']['name'] %>' class='resultsImg'>
+        <img src='<%= pokemon.pokemonB.img %>' alt='<%= pokemon.pokemonB.name %>' class='resultsImg'>
       </div>
       <div class='col-9'>
         <!-- Pokemon B Name and variable -->
-        <% let addB = helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonB']['formValue']) %>
-        <span class='<% if (previousVote && (pokemonData[i]['pokemonB']['formValue'] === previousVote[pokemonData[i]['formName']])) {%>highlightVote<%}%>'>
-          <%= pokemonData[i]['pokemonB']['name'] %>: <%= addB %><% if (addB === 1) { %> Vote<% } else { %> Votes<% } %>
+        <% let addB = helpers.add(votes, pokemon.formName, pokemon.pokemonB.formValue) %>
+        <span class='<% if (previousVote && (pokemon.pokemonB.formValue === previousVote[pokemon.formName])) {%>highlightVote<%}%>'>
+          <%= pokemon.pokemonB.name %>: <%= addB %><% if (addB === 1) { %> Vote<% } else { %> Votes<% } %>
         </span>
         <!-- Progress Bar and percentage variable -->
         <% let percentB = helpers.percentageOfVotes(addB, totalVotes) %>
@@ -89,13 +89,13 @@
       <div class='col'></div>
       <!-- Pokemon Image C -->
       <div class='col'>
-        <img src='<%= pokemonData[i]['pokemonC']['img'] %>' alt='<%= pokemonData[i]['pokemonC']['name'] %>' class='resultsImg'>
+        <img src='<%= pokemon.pokemonC.img %>' alt='<%= pokemon.pokemonC.name %>' class='resultsImg'>
       </div>
       <div class='col-9'>
         <!-- Pokemon C Name and variable -->
-        <% let addC = helpers.add(votes, pokemonData[i]['formName'], pokemonData[i]['pokemonC']['formValue']) %>
-        <span class='<% if (previousVote && (pokemonData[i]['pokemonC']['formValue'] === previousVote[pokemonData[i]['formName']])) {%>highlightVote<%}%>'>
-          <%= pokemonData[i]['pokemonC']['name'] %>: <%= addC %><% if (addC === 1) { %> Vote<% } else { %> Votes<% } %>
+        <% let addC = helpers.add(votes, pokemon.formName, pokemon.pokemonC.formValue) %>
+        <span class='<% if (previousVote && (pokemon.pokemonC.formValue === previousVote[pokemon.formName])) {%>highlightVote<%}%>'>
+          <%= pokemon.pokemonC.name %>: <%= addC %><% if (addC === 1) { %> Vote<% } else { %> Votes<% } %>
         </span>
         <!-- Progress Bar and percentage variable -->
         <% let percentC = helpers.percentageOfVotes(addC, totalVotes) %>
@@ -118,11 +118,11 @@
   <h4 class='container resultsGroupHeader'>The number of people who have played each game</h4>
 
   <div class='row'>
-  <% for (let i = 0; i < gamesData.length; i++) { %>
+  <% for (let game of gamesData) { %>
     <div class='col-6'>
       <div class='container'>
-        <h5 class='<% if (previousVote && (previousVote['gamesList'].indexOf(gamesData[i]['formValue']) !== -1)) {%>highlightVote<% } %>'>
-          <%= gamesData[i]['gameName'] %> : <%= helpers.totalGameVotes(votes, gamesData[i]['formValue']) %>
+        <h5 class='<% if (previousVote && (previousVote.gamesList.indexOf(game.formValue) !== -1)) {%>highlightVote<% } %>'>
+          <%= game.gameName %> : <%= helpers.totalGameVotes(votes, game.formValue) %>
         </h5>
       </div>
     </div>

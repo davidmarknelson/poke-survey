@@ -16,7 +16,7 @@ app.locals.helpers = {
   totalVotes: function(votes) {
     if (votes === undefined) { return 0 }
     let count = 0;
-    for (let i = 0; i < votes.length; i++) {
+    for (let vote of votes) {
       count += 1;
     }
     return count;
@@ -29,8 +29,8 @@ app.locals.helpers = {
   totalGameVotes: function(votes, gameFormValue) {
     if (votes === undefined) { return 0 }
     let count = 0;
-    for (let i = 0; i < votes.length; i++) {
-      let arrayNum = votes[i]['gamesList'].indexOf(gameFormValue);
+    for (let vote of votes) {
+      let arrayNum = vote.gamesList.indexOf(gameFormValue);
       if (arrayNum !== -1) {
         count += 1;
       }

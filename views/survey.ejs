@@ -14,7 +14,10 @@
 <!-- Date of previous vote -->
 <% if (previousVote && (previousVote.fingerprint === fingerprint)) { %>
   <div class='container surveyDateContainer'>
-    <h4 class='surveyResultsDate d-inline'>You voted on <%= helpers.getDateString(previousVote.date) %> <span class='instructions'>(you can change or delete your votes)</span></h4>
+    <h4 class='surveyResultsDate d-inline'>
+      You voted on <%= helpers.getDateString(previousVote.date) %> 
+      <span class='instructions'>(you can change or delete your votes)</span>
+    </h4>
   </div>
 <% } %>
 
@@ -22,26 +25,26 @@
 <form action='/survey' method='POST'>
 
 <div class='container'>
-<% for (let i = 0; i < pokemonData.length; i++) { %>
+<% for (let pokemon of pokemonData) { %>
   <!-- Pokemon Generation Header -->
   <div class='row'>
-    <h4 class='surveyGroupHeader'><%= pokemonData[i]['title'] %> <span class='instructions'>(choose one)</span></h4>
+    <h4 class='surveyGroupHeader'><%= pokemon.title %> <span class='instructions'>(choose one)</span></h4>
   </div>
   <div class='row pokemonRow'>
     <!-- Pokemon A -->
     <div class='col'>
       <div class='form-check form-check-inline h-100'>
-        <label class='form-check-label h-100' for='<%= pokemonData[i]['pokemonA']['formValue'] %>'>
+        <label class='form-check-label h-100' for='<%= pokemon.pokemonA.formValue %>'>
           <!-- Card A -->
           <div class='card h-100'>
             <!-- Pokemon Image -->
-            <img class='card-img-top' src='<%= pokemonData[i]['pokemonA']['img'] %>' alt='<%= pokemonData[i]['pokemonA']['formValue'] %>'>
+            <img class='card-img-top' src='<%= pokemon.pokemonA.img %>' alt='<%= pokemon.pokemonA.formValue %>'>
             <div class='card-body'>
               <!-- Pokemon Name -->
-              <h5 class='card-title'><%= pokemonData[i]['pokemonA']['name'] %></h5>
+              <h5 class='card-title'><%= pokemon.pokemonA.name %></h5>
               <!-- Radio Button -->
-              <input class='form-check-input radioInput' type='radio' id='<%= pokemonData[i]['pokemonA']['formValue'] %>' name='<%= pokemonData[i]['formName'] %>' value='<%= pokemonData[i]['pokemonA']['formValue'] %>' 
-                <% if (previousVote && (pokemonData[i]['pokemonA']['formValue'] === previousVote[pokemonData[i]['formName']])) {%>checked<%}%> 
+              <input class='form-check-input radioInput' type='radio' id='<%= pokemon.pokemonA.formValue %>' name='<%= pokemon.formName %>' value='<%= pokemon.pokemonA.formValue %>' 
+                <% if (previousVote && (pokemon.pokemonA.formValue === previousVote[pokemon.formName])) {%>checked<%}%> 
                 required
               >
             </div>
@@ -52,17 +55,17 @@
     <!-- Pokemon B -->
     <div class='col'>
       <div class='form-check form-check-inline h-100'>
-        <label class='form-check-label h-100' for='<%= pokemonData[i]['pokemonB']['formValue'] %>'>
+        <label class='form-check-label h-100' for='<%= pokemon.pokemonB.formValue %>'>
           <!-- Card B -->
           <div class='card h-100'>
             <!-- Pokemon Image -->
-            <img class='card-img-top' src='<%= pokemonData[i]['pokemonB']['img'] %>' alt='<%= pokemonData[i]['pokemonB']['formValue'] %>'>
+            <img class='card-img-top' src='<%= pokemon.pokemonB.img %>' alt='<%= pokemon.pokemonB.formValue %>'>
             <div class='card-body'>
               <!-- Pokemon Name -->
-              <h5 class='card-title'><%= pokemonData[i]['pokemonB']['name'] %></h5>
+              <h5 class='card-title'><%= pokemon.pokemonB.name %></h5>
               <!-- Radio Button -->
-              <input class='form-check-input radioInput' type='radio' id='<%= pokemonData[i]['pokemonB']['formValue'] %>' name='<%= pokemonData[i]['formName'] %>' value='<%= pokemonData[i]['pokemonB']['formValue'] %>' 
-                <% if (previousVote && (pokemonData[i]['pokemonB']['formValue'] === previousVote[pokemonData[i]['formName']])) {%>checked<%}%>
+              <input class='form-check-input radioInput' type='radio' id='<%= pokemon.pokemonB.formValue %>' name='<%= pokemon.formName %>' value='<%= pokemon.pokemonB.formValue %>' 
+                <% if (previousVote && (pokemon.pokemonB.formValue === previousVote[pokemon.formName])) {%>checked<%}%>
               >
             </div>
           </div>
@@ -72,17 +75,17 @@
     <!-- Pokemon C -->
     <div class='col'>
       <div class='form-check form-check-inline h-100'>
-        <label class='form-check-label h-100' for='<%= pokemonData[i]['pokemonC']['formValue'] %>'>
+        <label class='form-check-label h-100' for='<%= pokemon.pokemonC.formValue %>'>
           <!-- Card C -->
           <div class='card h-100'>
             <!-- Pokemon Image -->
-            <img class='card-img-top' src='<%= pokemonData[i]['pokemonC']['img'] %>' alt='<%= pokemonData[i]['pokemonC']['formValue'] %>'>
+            <img class='card-img-top' src='<%= pokemon.pokemonC.img %>' alt='<%= pokemon.pokemonC.formValue %>'>
             <div class='card-body'>
               <!-- Pokemon Name -->
-              <h5 class='card-title'><%= pokemonData[i]['pokemonC']['name'] %></h5>
+              <h5 class='card-title'><%= pokemon.pokemonC.name %></h5>
               <!-- Radio Button -->
-              <input class='form-check-input radioInput' type='radio' id='<%= pokemonData[i]['pokemonC']['formValue'] %>' name='<%= pokemonData[i]['formName'] %>' value='<%= pokemonData[i]['pokemonC']['formValue'] %>' 
-                <% if (previousVote && (pokemonData[i]['pokemonC']['formValue'] === previousVote[pokemonData[i]['formName']])) {%>checked<%}%>
+              <input class='form-check-input radioInput' type='radio' id='<%= pokemon.pokemonC.formValue %>' name='<%= pokemon.formName %>' value='<%= pokemon.pokemonC.formValue %>' 
+                <% if (previousVote && (pokemon.pokemonC.formValue === previousVote[pokemon.formName])) {%>checked<%}%>
               >
             </div>
           </div>
@@ -98,17 +101,17 @@
 </div>
 
 <div class='row games-list'>
-<% for (let i = 0; i < gamesData.length; i++) { %>
+<% for (let game of gamesData) { %>
   <!-- Game Name -->
   <div class='col-6'>
     <div class='form-check'>
       <!-- Checkbox -->
-      <input class='form-check-input' type='checkbox' name='<%= gamesData[i]['formName'] %>' value='<%= gamesData[i]['formValue'] %>' id='<%= gamesData[i]['formValue'] %>' 
-        <% if (previousVote && (previousVote['gamesList'].indexOf(gamesData[i]['formValue']) !== -1)) {%>checked<% } %>
+      <input class='form-check-input' type='checkbox' name='<%= game.formName %>' value='<%= game.formValue %>' id='<%= game.formValue %>' 
+        <% if (previousVote && (previousVote.gamesList.indexOf(game.formValue) !== -1)) {%>checked<% } %>
       >
       <!-- Pokemon Name -->
-      <label class='form-check-label' for='<%= gamesData[i]['formValue'] %>'>
-        <%= gamesData[i]['gameName'] %>
+      <label class='form-check-label' for='<%= game.formValue %>'>
+        <%= game.gameName %>
       </label>
     </div>
     </div>
